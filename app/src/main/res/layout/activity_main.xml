@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="br.com.fabricadeprogramador.apptuc.MainActivity"
+    android:background="@drawable/supermark">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Código de Barra"
+        android:id="@+id/tv_txtCodBarra" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/etCodigoBarra"
+        android:layout_below="@+id/tv_txtCodBarra"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Buscar"
+        android:id="@+id/btnBuscar"
+        android:layout_below="@+id/etCodigoBarra"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:id="@+id/tvDescricao"
+        android:layout_below="@+id/btnBuscar"
+        android:layout_alignParentEnd="true"
+        android:layout_toEndOf="@+id/tv_txtPreco" />
+
+    <TextView
+        android:text="Produto:"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/tvValor"
+        android:id="@+id/tv_txtProduto"
+        android:textSize="22sp"
+        android:layout_below="@+id/btnBuscar"
+        android:textColor="@color/colorPrimary"
+        android:layout_toLeftOf="@+id/tvDescricao"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:elevation="0dp"
+        android:freezesText="false"
+        android:textStyle="normal|bold" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvValor"
+        android:textSize="22sp"
+        android:layout_below="@+id/tvDescricao"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="18dp"
+        android:layout_toRightOf="@+id/tv_txtProduto"
+        android:layout_toEndOf="@+id/tv_txtProduto" />
+
+    <TextView
+        android:text="Preço(R$):"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_txtPreco"
+        android:textColor="@color/colorPrimary"
+        android:textSize="22sp"
+        android:layout_alignBaseline="@+id/tvValor"
+        android:layout_alignBottom="@+id/tvValor"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_toLeftOf="@+id/etQuantidade"
+        android:layout_toStartOf="@+id/etQuantidade"
+        android:textStyle="normal|bold" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/etQuantidade"
+        android:enabled="false"
+        android:visibility="invisible"
+        android:inputType="number"
+        android:textSize="22sp"
+        android:layout_below="@+id/tv_txtPreco"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_toRightOf="@+id/tv_txtQtde"
+        android:layout_toEndOf="@+id/tv_txtQtde" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/add"
+        android:id="@+id/btnAdicCesta"
+        android:layout_below="@+id/etQuantidade"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="18dp"
+        android:background="?attr/colorButtonNormal" />
+
+    <ImageButton
+        android:layout_width="@android:dimen/app_icon_size"
+        android:layout_height="@android:dimen/app_icon_size"
+        android:id="@+id/btnMinhaCesta"
+        android:src="@drawable/see"
+        android:layout_marginBottom="14dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignLeft="@+id/btnAdicCesta"
+        android:layout_alignStart="@+id/btnAdicCesta"
+        android:layout_alignRight="@+id/btnAdicCesta"
+        android:layout_alignEnd="@+id/btnAdicCesta"
+        android:background="?attr/colorButtonNormal" />
+
+    <TextView
+        android:text="Quantidade:"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_txtQtde"
+        android:textSize="22sp"
+        android:textColor="@color/colorPrimary"
+        android:layout_above="@+id/btnAdicCesta"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:textStyle="normal|bold" />
+
+
+</RelativeLayout>
