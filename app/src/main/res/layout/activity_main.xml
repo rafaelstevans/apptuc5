@@ -14,77 +14,66 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Código de Barra"
+        android:text="Código do Produto"
         android:id="@+id/tv_txtCodBarra" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/etCodigoBarra"
+        android:id="@+id/barcode_result"
         android:layout_below="@+id/tv_txtCodBarra"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Buscar"
-        android:id="@+id/btnBuscar"
-        android:layout_below="@+id/etCodigoBarra"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:id="@+id/tvDescricao"
-        android:layout_below="@+id/btnBuscar"
-        android:layout_alignParentEnd="true"
-        android:layout_toEndOf="@+id/tv_txtPreco" />
 
     <TextView
         android:text="Produto:"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/tvValor"
         android:id="@+id/tv_txtProduto"
         android:textSize="22sp"
-        android:layout_below="@+id/btnBuscar"
         android:textColor="@color/colorPrimary"
-        android:layout_toLeftOf="@+id/tvDescricao"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
         android:elevation="0dp"
         android:freezesText="false"
-        android:textStyle="normal|bold" />
+        android:textStyle="normal|bold"
+        android:layout_below="@+id/scan_barcode"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/tvValor"
-        android:textSize="22sp"
-        android:layout_below="@+id/tvDescricao"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:id="@+id/tvDescricao"
+        android:layout_below="@+id/tv_txtProduto"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <ImageButton
+        android:layout_width="@android:dimen/app_icon_size"
+        android:layout_height="@android:dimen/app_icon_size"
+        android:id="@+id/btnMinhaCesta"
+        android:src="@drawable/ver"
+        android:layout_marginBottom="22dp"
+        android:background="?attr/colorButtonNormal"
+        android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="18dp"
-        android:layout_toRightOf="@+id/tv_txtProduto"
-        android:layout_toEndOf="@+id/tv_txtProduto" />
+        android:layout_marginRight="36dp"
+        android:layout_marginEnd="36dp" />
 
     <TextView
-        android:text="Preço(R$):"
+        android:text="Quantidade:"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/tv_txtPreco"
-        android:textColor="@color/colorPrimary"
+        android:id="@+id/tv_txtQtde"
         android:textSize="22sp"
-        android:layout_alignBaseline="@+id/tvValor"
-        android:layout_alignBottom="@+id/tvValor"
+        android:textColor="@color/colorPrimary"
+        android:textStyle="normal|bold"
+        android:layout_below="@+id/tvValor"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_toLeftOf="@+id/etQuantidade"
-        android:layout_toStartOf="@+id/etQuantidade"
-        android:textStyle="normal|bold" />
+        android:layout_marginTop="14dp" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -94,46 +83,63 @@
         android:visibility="invisible"
         android:inputType="number"
         android:textSize="22sp"
+        android:layout_below="@+id/tv_txtQtde"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignRight="@+id/tv_txtPreco"
+        android:layout_alignEnd="@+id/tv_txtPreco" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvValor"
+        android:textSize="22sp"
         android:layout_below="@+id/tv_txtPreco"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_toRightOf="@+id/tv_txtQtde"
-        android:layout_toEndOf="@+id/tv_txtQtde" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:text="Preço(R$):"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_txtPreco"
+        android:textColor="@color/colorPrimary"
+        android:textSize="22sp"
+        android:textStyle="normal|bold"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/keyb2"
+        android:id="@+id/btn_digitar"
+        android:layout_below="@+id/barcode_result"
+        android:layout_alignRight="@+id/btnMinhaCesta"
+        android:layout_alignEnd="@+id/btnMinhaCesta" />
 
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:srcCompat="@drawable/add"
         android:id="@+id/btnAdicCesta"
-        android:layout_below="@+id/etQuantidade"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="18dp"
-        android:background="?attr/colorButtonNormal" />
+        android:background="?attr/colorButtonNormal"
+        android:layout_alignTop="@+id/btnMinhaCesta"
+        android:layout_alignRight="@+id/tv_txtProduto"
+        android:layout_alignEnd="@+id/tv_txtProduto" />
 
     <ImageButton
-        android:layout_width="@android:dimen/app_icon_size"
-        android:layout_height="@android:dimen/app_icon_size"
-        android:id="@+id/btnMinhaCesta"
-        android:src="@drawable/see"
-        android:layout_marginBottom="14dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignLeft="@+id/btnAdicCesta"
-        android:layout_alignStart="@+id/btnAdicCesta"
-        android:layout_alignRight="@+id/btnAdicCesta"
-        android:layout_alignEnd="@+id/btnAdicCesta"
-        android:background="?attr/colorButtonNormal" />
-
-    <TextView
-        android:text="Quantidade:"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/tv_txtQtde"
-        android:textSize="22sp"
-        android:textColor="@color/colorPrimary"
-        android:layout_above="@+id/btnAdicCesta"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:textStyle="normal|bold" />
+        app:srcCompat="@drawable/barcode"
+        android:id="@+id/scan_barcode"
+        android:layout_below="@+id/barcode_result"
+        android:layout_alignLeft="@+id/btnAdicCesta"
+        android:layout_alignStart="@+id/btnAdicCesta"
+        android:layout_alignBottom="@+id/btn_digitar"
+        android:layout_alignRight="@+id/tv_txtPreco"
+        android:layout_alignEnd="@+id/tv_txtPreco" />
 
 
 </RelativeLayout>

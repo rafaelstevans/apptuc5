@@ -17,22 +17,22 @@
         android:id="@+id/lvCesta"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/textView2"
+        android:layout_below="@+id/tv_cabecalho"
         android:layout_above="@+id/tv_txtTotal" />
 
     <TextView
-        android:text="Meu Carrinho"
+        android:text="Qtde / Produto / Preço"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/textView2"
+        android:id="@+id/tv_cabecalho"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:textSize="22sp"
+        android:textSize="18sp"
         android:layout_alignParentTop="true"
         android:textColor="@color/colorAccent"
         android:textStyle="normal|bold"
-        android:layout_toLeftOf="@+id/tv_ValorTotal"
-        android:layout_toStartOf="@+id/tv_ValorTotal" />
+        android:layout_toStartOf="@+id/imageView"
+        android:layout_toLeftOf="@+id/imageView" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -67,10 +67,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:srcCompat="@drawable/see"
-        android:layout_above="@+id/lvCesta"
+        android:id="@+id/imageView"
+        android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginRight="107dp"
-        android:layout_marginEnd="107dp"
-        android:id="@+id/imageView" />
+        android:layout_marginRight="16dp"
+        android:layout_marginEnd="16dp" />
 </RelativeLayout>

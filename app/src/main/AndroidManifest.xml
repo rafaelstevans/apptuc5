@@ -2,12 +2,25 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="br.com.fabricadeprogramador.apptuc">
 
+    <uses-feature android:name="android.hardware.camera" />
+
+    <uses-permission android:name="android.permission.CAMERA" />
+
+
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
+        android:icon="@mipmap/ht"
+        android:label="TUC"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+        <meta-data
+            android:name="com.google.android.gms.vision.DEPENDENCIES"
+            android:value="barcode" />
+
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -15,7 +28,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".CestaActivity"></activity>
+        <activity android:name=".CestaActivity"
+            android:label="Meu Carrinho"/>
+
+        <activity android:name=".ScanBarcodeActivity"
+            android:label="Leitor Código de Barras"/>
+
     </application>
 
 </manifest>
