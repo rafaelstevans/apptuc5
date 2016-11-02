@@ -23,7 +23,9 @@
         android:id="@+id/barcode_result"
         android:layout_below="@+id/tv_txtCodBarra"
         android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:textSize="18sp"
+        android:inputType="number" />
 
 
     <TextView

@@ -18,6 +18,8 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
+import static java.lang.Thread.sleep;
+
 public class MainActivity extends AppCompatActivity {
 
     @Bind(R.id.barcode_result)
@@ -39,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-    Produto produtoSelecionado;
+    private Produto produtoSelecionado;
     private Double total = 0.0;
 
 
@@ -141,8 +143,18 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void buscar() {
+
         String cod = barcodeResult.getText().toString();
-        produtoSelecionado = ProdutoService.buscarProduto(cod);
+        ProdutoService produtoService = new ProdutoService();
+        produtoService.buscarProduto(cod);
+        //produtoSelecionado = produtoService.produtoBanco;
+        try {
+            sleep (2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        produtoSelecionado = produtoService.produtoBanco;
+
         if (produtoSelecionado != null) {
             //Display
             descricao.setText(produtoSelecionado.getDescricao());
@@ -153,6 +165,8 @@ public class MainActivity extends AppCompatActivity {
             quantidade.setVisibility(View.VISIBLE);
             btnAddCesta.setEnabled(true);
             btnAddCesta.setVisibility(View.VISIBLE);
+
+            //produtoSelecionado = produtoService.produtoBanco;
 
 
         } else {
