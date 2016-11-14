@@ -3,6 +3,7 @@ package br.com.fabricadeprogramador.apptuc;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
@@ -75,7 +76,9 @@ public class ScanBarcodeActivity extends AppCompatActivity {
 
             @Override
             public void surfaceDestroyed(SurfaceHolder surfaceHolder) {
+
                 cameraSource.stop();
+
             }
         });
 
@@ -87,6 +90,7 @@ public class ScanBarcodeActivity extends AppCompatActivity {
 
             @Override
             public void receiveDetections(Detector.Detections<Barcode> detections) {
+
                 final SparseArray<Barcode> barcodes=detections.getDetectedItems();
                 if(barcodes.size()>0){
                     Intent intent = new Intent();

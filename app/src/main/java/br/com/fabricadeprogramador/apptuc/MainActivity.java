@@ -1,6 +1,7 @@
 package br.com.fabricadeprogramador.apptuc;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -39,8 +40,6 @@ public class MainActivity extends AppCompatActivity {
     @Bind(R.id.btnAdicCesta)
     ImageButton btnAddCesta;
 
-
-
     private Produto produtoSelecionado;
     private Double total = 0.0;
 
@@ -57,6 +56,11 @@ public class MainActivity extends AppCompatActivity {
         if(requestCode==0){
             if(resultCode== CommonStatusCodes.SUCCESS){
                 if(data !=null){
+                    MediaPlayer mp;
+                    mp = MediaPlayer.create(MainActivity.this, R.raw.beep1);
+                    mp.start();
+
+
                     Barcode barcode = data.getParcelableExtra("barcode");
                     barcodeResult.setText(""+barcode.displayValue);
                     buscar();

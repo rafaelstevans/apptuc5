@@ -1,6 +1,7 @@
 package br.com.fabricadeprogramador.apptuc;
 
 
+import android.media.MediaPlayer;
 import android.os.AsyncTask;
 import android.util.Log;
 import android.widget.Toast;
@@ -77,7 +78,7 @@ public class ProdutoService {
         @Override
         protected Produto doInBackground(Void... params) {
             try {
-                final String url = "http://192.168.0.162:8080/produtos/" + codigo;
+                final String url = "http://192.168.43.208:8080/produtos/" + codigo;
                 RestTemplate restTemplate = new RestTemplate();
                 restTemplate.getMessageConverters().add(new MappingJackson2HttpMessageConverter());
                 Produto product = restTemplate.getForObject(url, Produto.class);
@@ -92,7 +93,8 @@ public class ProdutoService {
 
         @Override
         protected void onPostExecute(Produto product) {
-           //produtoBanco = product;
+
+            //produtoBanco = product;
             //stop
         }
     }
